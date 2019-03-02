@@ -5,14 +5,6 @@ import random
 
 data=pd.read_csv("data1.csv",header=None,dtype=float)
 
-col1=[]
-col2=[]
-
-for i in data[0]:
-    col1.append(i)
-    
-for i in data[1]:
-    col2.append(i)
     
 k = int(input("Enter value of k : "))
 
@@ -21,12 +13,7 @@ m=pd.DataFrame()
 
 rows = data.loc[0:k-1,:]
 m=m.append(rows)
-'''
 
-for i in range(k):
-    t=random.randrange(len(data))
-    m = m.append(data.loc[t,:])
-''' 
   
 print(m)
 
@@ -38,12 +25,7 @@ while True:
     for i in range(len(data)):
         for j in range(len(m)):
             mean.append(mt.sqrt((data.loc[i,0]-m.loc[j,0])**2+(data.loc[i,1]-m.loc[j,1])**2))
-        '''
-        min=0
-        for j in range(1,len(m)):
-            if mean[j]<mean[min]:
-                min=j
-        '''
+
         ind=0
         ind=min(mean)
         min1=mean.index(ind)
